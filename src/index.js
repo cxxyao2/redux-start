@@ -1,14 +1,7 @@
-import { compose, pipe } from "lodash/fp";
+import store from "./store";
+import { bugAdded, bugResolved } from "./actions";
 
-let input = " JavaScript ";
-let output = "<div>" + input.trim() + "</div>";
+store.dispatch(bugAdded("Bug 1"));
+store.dispatch(bugResolved(1));
 
-const trim = (str) => str.trim();
-const wrapInDiv = (str) => `<div>${str}</div>`;
-const toLowerCase = (str) => str.toLowerCase();
-
-// 以下三种方法有相同效果
-// const result = wrapInDiv(toLowerCase(trim(input)));
-// const transform = compose(wrapInDiv, toLowerCase, trim);
-const transform = pipe(trim, toLowerCase, wrapInDiv);
-console.log(transform(input));
+console.log(store.getState());
