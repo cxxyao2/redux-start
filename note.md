@@ -10,8 +10,8 @@ _npm run start_
 
 ```javascript
 function functionA(argumentA) {
-  return functionB(argumentB)(argumentB) {
-    return functionC(argumentC){
+  return function(argumentB) {
+    return function(argumentC){
       ....
     }
   }
