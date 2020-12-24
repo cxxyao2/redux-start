@@ -1,7 +1,8 @@
 # commands
 
-> npm run build
-> npm run start
+_npm run build   
+
+_npm run start_
 
 # currying
 
