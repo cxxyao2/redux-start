@@ -1,7 +1,16 @@
-import store from "./store";
-import { bugAdded, bugResolved } from "./actions";
+import configureStore from "./store/configureStore";
+import * as actions from "./store/bugs";
 
-store.dispatch(bugAdded("Bug 1"));
-store.dispatch(bugResolved(1));
+const store = configureStore();
+
+// add a listener
+store.subscribe(() => {
+  console.log("store changed!");
+});
+
+store.dispatch(actions.bugAdded("Bug 1"));
+store.dispatch(actions.bugAdded("Bug 2"));
+store.dispatch(actions.bugAdded("Bug 3"));
+store.dispatch(actions.bugResolved(1));
 
 console.log(store.getState());
