@@ -1,4 +1,5 @@
 import { bugAdded } from "./actions";
+import { store } from "redux";
 
 const unsubscribe = store.subscribe(() => {
   console.log("Store changed", store.getState());
